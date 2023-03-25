@@ -104,32 +104,28 @@ app.get('/'), (req, res) => {
   res.send("OI")
 }
 
-app.get("/liquipedia", (req, res) => {
-  cachedPartidas = fs.readFileSync(
-    path.resolve(__dirname, "cacheData", "data.html"),
-    "utf8"
-  );
-  getData(cachedPartidas);
-  res.json(content);
-  //console.log(content);
-});
+// app.get("/liquipedia", (req, res) => {
+//   cachedPartidas = fs.readFileSync(
+//     path.resolve(__dirname, "cacheData", "data.html"),
+//     "utf8"
+//   );
+//   getData(cachedPartidas);
+//   res.json(content);
+//   //console.log(content);
+// });
 
-app.get("/fetchData", async (req, res) => {
-  fetchDataCampeonatos();
-  fetchDataPartidas(req, res);
-});
+// app.get("/fetchData", async (req, res) => {
+//   fetchDataCampeonatos();
+//   fetchDataPartidas(req, res);
+// });
 
-app.get("/partidas", async (req, res) => {
-  cachedPartidas = fs.readFileSync(
-    path.resolve(__dirname, "cacheData", "partidas.json"),
-    "utf8"
-  );
-  res.json({ partidas: getPartidas(cachedPartidas) });
-  //console.log(content);
-});
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
-});
+// app.get("/partidas", async (req, res) => {
+//   cachedPartidas = fs.readFileSync(
+//     path.resolve(__dirname, "cacheData", "partidas.json"),
+//     "utf8"
+//   );
+//   res.json({ partidas: getPartidas(cachedPartidas) });
+//   //console.log(content);
+// });
 
 module.exports = app;
